@@ -24,19 +24,17 @@ function App() {
   }, [showCounter]);
 
   const handleShowCounter = () => {
-    setShowCounter(true);
-  };
-
-  const handleHideCounter = () => {
-    setShowCounter(false);
+    setShowCounter((prev) => !prev);
     setCount(0);
   };
 
   return (
     <div className="container">
       <h2>{showCounter && <div>Counter: {count}</div>}</h2>
-      <button onClick={handleShowCounter}>Show</button>
-      <button onClick={handleHideCounter}>Hide</button>
+      <button onClick={handleShowCounter}>
+        {showCounter ? "Hide" : "Show"}
+      </button>
+      <br />
     </div>
   );
 }
